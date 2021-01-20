@@ -1,0 +1,188 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@7eebd17c";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@202c148f";
+	node_size = (130 55);
+	rcenginegenerator1317510038576835557L = "edu.ucla.belief.inference.RCSettings@34f8f5ec";
+}
+
+node MANUFACTURED
+{
+	states = ("YES" "NO" );
+	position = (271 -524);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable9";
+	label = "MANUFACTURED";
+	excludepolicy = "include whole CPT";
+}
+node CLASS
+{
+	states = ("A" "B" "C" "D" "E" );
+	position = (407 -143);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "CLASS";
+	excludepolicy = "include whole CPT";
+}
+node FACTORY_ZONE
+{
+	states = ("EUROPE" "AMERICA" "ASIA" );
+	position = (154 -418);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable7";
+	label = "FACTORY_ZONE";
+	excludepolicy = "include whole CPT";
+}
+node CAR
+{
+	states = ("Saloon" "Hatchback" "Jeep" );
+	position = (233 -20);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "CAR";
+	EXCLUDE_FROM_SENSITIVITY = "";
+	excludepolicy = "include whole CPT";
+}
+node VALUE
+{
+	states = ("HIGH" "LOW" );
+	position = (42 -145);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "VALUE";
+	excludepolicy = "include whole CPT";
+}
+node COLOR
+{
+	states = ("White" "Black" "OtherColors" );
+	position = (242 -141);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "COLOR";
+	excludepolicy = "include whole CPT";
+}
+node FACTORY_AGE
+{
+	states = ("LOWER_THAN_10" "BIGGER_THAN_10" );
+	position = (389 -414);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable8";
+	label = "FACTORY_AGE";
+	excludepolicy = "include whole CPT";
+}
+node NEW_TECH
+{
+	states = ("YES" "NO" );
+	position = (260 -284);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable5";
+	label = "NEW_TECH";
+	excludepolicy = "include whole CPT";
+}
+node CHRONIC_PROBLEM
+{
+	states = ("YES" "NO" );
+	position = (447 -277);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable6";
+	label = "CHRONIC_PROBLEM";
+	excludepolicy = "include whole CPT";
+}
+node FUEL
+{
+	states = ("GASOLINE" "DIESEL" "BIO" "ELECTRICAL" );
+	position = (78 -285);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable4";
+	label = "FUEL";
+	excludepolicy = "include whole CPT";
+}
+potential ( MANUFACTURED | FACTORY_ZONE FACTORY_AGE )
+{
+	data = (((	0.93	0.07	)
+		(	0.95	0.05	))
+		((	0.88	0.12	)
+		(	0.84	0.16	))
+		((	0.87	0.13	)
+		(	0.87	0.13	)));
+}
+potential ( CLASS | CAR )
+{
+	data = ((	0.0	0.2	0.4	0.3	0.1	)
+		(	0.28	0.32	0.4	0.0	0.0	)
+		(	0.0	0.1	0.44	0.36	0.1	));
+}
+potential ( FACTORY_ZONE | FUEL )
+{
+	data = ((	0.32	0.58	0.1	)
+		(	0.2	0.4	0.4	)
+		(	0.12	0.18	0.7	)
+		(	0.55	0.34	0.11	));
+}
+potential ( CAR | )
+{
+	data = (	0.5	0.4	0.1	);
+}
+potential ( VALUE | CAR )
+{
+	data = ((	0.57	0.43	)
+		(	0.45	0.55	)
+		(	0.68	0.32	));
+}
+potential ( COLOR | CAR )
+{
+	data = ((	0.7	0.2	0.1	)
+		(	0.6	0.2	0.2	)
+		(	0.4	0.5	0.1	));
+}
+potential ( FACTORY_AGE | CHRONIC_PROBLEM )
+{
+	data = ((	0.83	0.17	)
+		(	0.55	0.45	));
+}
+potential ( NEW_TECH | VALUE CLASS )
+{
+	data = (((	0.7333333333333334	0.26666666666666666	)
+		(	0.7666666666666666	0.23333333333333336	)
+		(	0.8333333333333334	0.16666666666666666	)
+		(	0.86	0.14	)
+		(	0.85	0.15	))
+		((	0.85	0.15	)
+		(	0.85	0.15	)
+		(	0.85	0.15	)
+		(	0.85	0.15	)
+		(	0.85	0.15	)));
+}
+potential ( CHRONIC_PROBLEM | CLASS )
+{
+	data = ((	0.23	0.77	)
+		(	0.14	0.86	)
+		(	0.11	0.89	)
+		(	0.09	0.91	)
+		(	0.28	0.7200000000000001	));
+}
+potential ( FUEL | VALUE )
+{
+	data = ((	0.47933333333333333	0.30400000000000005	0.05933333333333334	0.15733333333333335	)
+		(	0.48	0.32	0.07	0.13	));
+}
